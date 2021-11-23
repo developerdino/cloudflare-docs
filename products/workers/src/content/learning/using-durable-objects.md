@@ -395,7 +395,7 @@ export default {
 async function handleRequest(request, env) {
     let id = env.Counter.idFromName("A");
     let obj = env.Counter.get(id);
-    let resp = await obj.fetch(request.url);
+    let resp = await obj.fetch(request);
     let count = await resp.text();
 
     return new Response("Durable Object 'A' count: " + count);
